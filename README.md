@@ -1,4 +1,4 @@
-![alt text] City Shooter ![alt text]
+### City Shooter
 
 ===============
  
