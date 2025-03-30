@@ -28,7 +28,6 @@ class EntityMediator:
 
     @staticmethod
     def __verify_collision_entity(ent1, ent2): # verificação das colisões entre as entidades
-        print(f"Verificando colisão entre {ent1.name} e {ent2.name}")
         valid_interaction = False
         if isinstance(ent1, Enemy) and isinstance(ent2, PlayerShot):
             valid_interaction = True
@@ -40,12 +39,10 @@ class EntityMediator:
             valid_interaction = True
 
         if valid_interaction:  # if valid_interaction == True:
-            print(f"Possível colisão entre {ent1.name} e {ent2.name}")
             if (ent1.rect.right >= ent2.rect.left and
                     ent1.rect.left <= ent2.rect.right and
                     ent1.rect.bottom >= ent2.rect.top and
                     ent1.rect.top <= ent2.rect.bottom):
-                print(f"COLISÃO DETECTADA! {ent1.name} atingiu {ent2.name}")  # Debug
                 ent1.health -= ent2.damage
                 ent2.health -= ent1.damage
                 ent1.last_dmg = ent2.name
@@ -64,7 +61,6 @@ class EntityMediator:
 
     @staticmethod
     def verify_collision(entity_list: list[Entity]):
-        print("\n👀 Lista de entidades no jogo:")
         for i in range(len(entity_list)):
             entity1 = entity_list[i]
             EntityMediator.__verify_collision_window(entity1)
